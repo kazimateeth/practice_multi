@@ -11,7 +11,7 @@ winter_clothes = "防寒具"
 evaluate = {}
 evaluate["日付"] = today
 
-st.write("評価")
+st.title("評価")
 col1 , col2 , col3 , col4, col5 = st.columns(5)
 with col1:
     st.write(jacket)

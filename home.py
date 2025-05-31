@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.write("今日の服装")
+st.title("今日の服装")
 col1, col2 = st.columns(2)  
 with col1:
     st.write("朝夜の服装")
