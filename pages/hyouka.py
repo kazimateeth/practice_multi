@@ -31,7 +31,7 @@ if "username" not in st.session_state:
             st.session_state.username = new_user
             st.session_state.new_user_not_found = False
             st.success(f"{new_user} として新規登録しました。ページを更新します...")
-            time.sleep(2)
+            time.sleep(1)
             st.rerun()
         if st.button("もう一度入力しなおす"):
             st.session_state.new_user_not_found = False
@@ -81,15 +81,7 @@ else:
         evaluate[winter_clothes] = st.selectbox(winter_clothes,option4)
     with col5:
         st.write("気温")
-        evaluate["評価"] = st.radio("これを…", ("暑かった", "寒かった", "ちょうどいい"))
-
-    # if st.button("保存"):
-    #     user_data[st.session_state.username][today] = evaluate
-    #     with open(DATA_FILE, "w") as f:
-    #         json.dump(user_data, f, indent=2)
-    #     st.subheader("フィードバックを受け付けました！")
-    #     for category, choice in evaluate.items():
-    #         st.write(f"・{category}：{choice}")
+        evaluate["評価"] = st.radio("この服装が…", ("暑かった", "寒かった", "ちょうどいい"))
 
     if st.button("保存"):
         user_data[st.session_state.username][today_str] = evaluate
