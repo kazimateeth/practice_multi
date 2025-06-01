@@ -19,8 +19,6 @@ def calc_apparent_temp(t, h, v):
     Tm = 37 - (37 - t) / (0.68 - 0.0014 * h + 1/A) - 0.29 * t * (1 - h / 100)
     return Tm
 
-
-
 API_KEY = "129959c8cc98ea896a4b7ccfabefdbca"
 
 lat, lon, city, region = get_location()
@@ -31,11 +29,6 @@ if data.get("main"):
     h = data["main"]["humidity"]
     v = data["wind"]["speed"]
     Tm = calc_apparent_temp(t, h, v)
-
-    st.subheader(f"📍 {region} - {city}")
-    st.metric("体感温度 (°C)", f"{Tm:.2f} °C")
-else:
-    st.error("天気情報を取得できませんでした。")
 
 
 url1="https://cdn.pixabay.com/photo/2020/01/29/17/09/snowboard-4803050_1280.jpg"
