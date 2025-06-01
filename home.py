@@ -29,6 +29,7 @@ if data.get("main"):
     h = data["main"]["humidity"]
     v = data["wind"]["speed"]
     Tm = calc_apparent_temp(t, h, v)
+st.session_state.temp_feel=Tm
 
 
 url1="https://cdn.pixabay.com/photo/2020/01/29/17/09/snowboard-4803050_1280.jpg"
@@ -48,7 +49,7 @@ for i in range(6):
 
 
 st.title("今日の服装")
-st.title("🌤 現在地の天気情報")
+st.header("🌤 現在地の天気情報")
 if data.get("main"):
     t = data["main"]["temp"]
     h = data["main"]["humidity"]

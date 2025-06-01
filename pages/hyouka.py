@@ -63,6 +63,7 @@ else:
 
     st.title("評価")
     col1 , col2 , col3 , col4, col5 = st.columns(5)
+    evaluate["体感温度"]=f"{st.session_state.temp_feel:.2f}"
     with col1:
         st.write(jacket)
         option1=["なし","薄手","厚手",]
