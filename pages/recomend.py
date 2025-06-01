@@ -19,17 +19,19 @@ elif "username" in st.session_state:
     closest_diff=1000
     today_temp=st.session_state.temp_feel
 
-
-    for date, evaluations in data.items():
-            if ("体感温度" in evaluations):
-                past_temp = float(evaluations["体感温度"])
-                diff = abs(past_temp - today_temp)
-                if diff < closest_diff:
-                    closest_diff = diff
-                    closest_record = evaluations
-                    closest_date = date         
-    st.subheader(f"最も近い服装の日とデータ: {closest_diff:.1f}℃")
-    st.write(f"日付: {closest_date}")
-    st.write("評価内容:")
-    for key, value in closest_record.items():
-        st.write(f"・{key}: {value}")
+    if not data:
+        st.write("過去のデータが存在しません")
+    else:
+        for date, evaluations in data.items():
+                if ("体感温度" in evaluations):
+                    past_temp = float(evaluations["体感温度"])
+                    diff = abs(past_temp - today_temp)
+                    if diff < closest_diff:
+                        closest_diff = diff
+                        closest_record = evaluations
+                        closest_date = date         
+        st.subheader(f"最も近い服装の日とデータ: {closest_diff:.1f}℃")
+        st.write(f"日付: {closest_date}")
+        st.write("評価内容:")
+        for key, value in closest_record.items():
+            st.write(f"・{key}: {value}")
