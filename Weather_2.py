@@ -3,6 +3,8 @@ import requests
 from datetime import datetime, timedelta
 from geopy.geocoders import Nominatim
 
+
+
 # 🔑 OpenWeatherMap APIキーを入力
 API_KEY = "129959c8cc98ea896a4b7ccfabefdbca"
 
