@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 
+
 # 現在地をIPから取得
 def get_location():
     res = requests.get("http://ip-api.com/json/").json()
@@ -18,8 +19,7 @@ def calc_apparent_temp(t, h, v):
     Tm = 37 - (37 - t) / (0.68 - 0.0014 * h + 1/A) - 0.29 * t * (1 - h / 100)
     return Tm
 
-# Streamlit UI
-st.title("🌤 現在地の天気情報")
+
 
 API_KEY = "129959c8cc98ea896a4b7ccfabefdbca"
 
@@ -47,15 +47,25 @@ url6="https://cdn.pixabay.com/photo/2020/06/20/16/13/male-5321547_1280.jpg"
 
 url_list=[url1,url2,url3,url4,url5,url6]#寒い順に画像のurl
 url=url6
-temp=[0,5,10,15,20,25]
+temp=[0,5,10,15,20,25]#基準となる気温
 for i in range(6):
     if(Tm<temp[i]):
      url=url_list[i]
      break
 
 
-
 st.title("今日の服装")
+st.title("🌤 現在地の天気情報")
+if data.get("main"):
+    t = data["main"]["temp"]
+    h = data["main"]["humidity"]
+    v = data["wind"]["speed"]
+    Tm = calc_apparent_temp(t, h, v)
+
+    st.subheader(f"📍 {region} - {city}")
+    st.metric("体感温度 (°C)", f"{Tm:.2f} °C")
+else:
+    st.error("天気情報を取得できませんでした。")
 col1, col2 = st.columns(2)  
 with col1:
     st.write("朝夜の服装")

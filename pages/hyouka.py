@@ -15,19 +15,19 @@ st.title("評価")
 col1 , col2 , col3 , col4, col5 = st.columns(5)
 with col1:
     st.write(jacket)
-    option1=["","","",]
+    option1=["ダウンジャケット","厚手の上着","薄手の上着","なし"]
     evaluate[jacket] = st.selectbox(jacket,option1)
 with col2:
     st.write(tops)
-    option2=["","","",]
+    option2=["厚めの長袖","薄手の長袖","半袖",]
     evaluate[tops] = st.selectbox(tops,option2)
 with col3:
     st.write(bottoms)
-    option3=["","","",]
+    option3=["厚手のボトムス","薄手のボトムス","短いボトムス",]
     evaluate[bottoms] = st.selectbox(bottoms,option3)
 with col4:
     st.write(winter_clothes)
-    option4=["","","",]
+    option4=["しっかり","少し","なし",]
     evaluate[winter_clothes] = st.selectbox(winter_clothes,option4)
 with col5:
     st.write("気温")
