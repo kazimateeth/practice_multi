@@ -21,6 +21,7 @@ if "username" not in st.session_state:
     if "new_user_not_found" not in st.session_state:
         st.session_state.new_user_not_found = False
 
+
     if st.session_state.new_user_not_found:
         st.write(f"{new_user}というユーザーが見当たりません。新規登録しますか？")
         if st.button("新規登録"):
@@ -90,7 +91,6 @@ else:
     #     for category, choice in evaluate.items():
     #         st.write(f"・{category}：{choice}")
 
-    
     if st.button("保存"):
         user_data[st.session_state.username][today_str] = evaluate
         with open(DATA_FILE, "w", encoding="utf-8") as f:
